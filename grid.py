@@ -34,3 +34,8 @@ def grid_lines(image, grid_shape, color=(0, 255, 0), thickness=1):
         cv.line(image, (x, 0), (x, img_height), color, thickness)
 
     return image
+
+image = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\img\sample_img.JPG"
+img = cv.imread(image)
+grid_img = grid_lines(img, (4, 4), color=(255, 0, 0), thickness=2)
+cv.imshow("Grid Image", grid_img)
