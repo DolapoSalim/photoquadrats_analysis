@@ -2,6 +2,7 @@
 
 import cv2 as cv
 import numpy as np
+from matplotlib import pylot as plt
 
 def grid_lines(image, grid_shape, color=(0, 255, 0), thickness=1):
     """
