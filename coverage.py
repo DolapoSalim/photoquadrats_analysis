@@ -1,8 +1,11 @@
 from ultralytics import YOLO
 import numpy as np
 
-model = YOLO("best-seg.pt")
-results = model("quadrat.jpg")[0]
+PATH_TO_MODEL = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\model\customV8.pt"
+PATH_TO_IMAGE = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\quadrat.jpg"
+
+model = YOLO(PATH_TO_MODEL)
+results = model(PATH_TO_IMAGE)[0]
 
 H, W = results.orig_img.shape[:2]
 
