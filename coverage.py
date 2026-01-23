@@ -17,9 +17,9 @@ logger = logging.getLogger(__name__)
 # ========================
 MODEL_PATH = "best-seg.pt"
 IMAGE_PATH = "quadrat.jpg"
-QUADRAT_WIDTH_CM = 50
-QUADRAT_HEIGHT_CM = 50
-CONFIDENCE_THRESHOLD = 0.5  # Filter detections below this confidence
+QUADRAT_WIDTH_CM = 20
+QUADRAT_HEIGHT_CM = 20
+CONFIDENCE_THRESHOLD = 0.35  # Filter detections below this confidence
 OUTPUT_VISUALIZATION = "quadrat_analysis.png"  # Set to None to skip
 
 # ========================
