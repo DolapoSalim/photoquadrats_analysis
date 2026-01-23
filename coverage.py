@@ -1,8 +1,9 @@
+import ultralytics
 from ultralytics import YOLO
 import numpy as np
 
 PATH_TO_MODEL = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\model\customV8.pt"
-PATH_TO_IMAGE = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\quadrat.jpg"
+PATH_TO_IMAGE = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\img\sample_img.JPG"
 
 model = YOLO(PATH_TO_MODEL)
 results = model(PATH_TO_IMAGE)[0]
