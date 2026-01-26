@@ -3,7 +3,7 @@ import numpy as np
 from pathlib import Path
 
 # Settings
-INPUT_IMAGE = "quadrat.jpg"
+INPUT_IMAGE = "C:\\Users\\dolap\\OneDrive\\Documents\\DOLAPO\\data-analysis\\photoquadrats_analysis\\img\\sample_img.jpg"
 OUTPUT_IMAGE = "quadrat_calibrated.jpg"
 QUADRAT_SIZE_CM = 20
 
