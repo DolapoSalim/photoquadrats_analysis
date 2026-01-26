@@ -10,7 +10,7 @@ CONFIDENCE_THRESHOLD = 0.5
 GRID_SHAPE = (4, 4)
 OUTPUT_VIZ = "quadrat_analysis.png"
 OUTPUT_EXCEL = "grid_analysis_report.xlsx"
-=
+
 # Functions
 def grid_lines(image, grid_shape, color=(0, 255, 0), thickness=1):
     """Draw grid on image."""
