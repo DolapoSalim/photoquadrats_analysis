@@ -34,8 +34,8 @@ def grid_lines(image, grid_shape, color=(0, 255, 0), thickness=1):
 
     return image
 
-def get_class_colors(class_names):
-    """Generate distinct colors for each class."""
+def get_class_colors(num_classes):
+    """Generate distinct colors for each class by ID."""
     colors = {
         0: (0, 255, 0),      # Green
         1: (255, 0, 0),      # Blue
@@ -48,7 +48,7 @@ def get_class_colors(class_names):
         8: (128, 0, 255),    # Purple
         9: (0, 128, 255),    # Orange-Red
     }
-    return {name: colors.get(i, colors[i % 10]) for i, name in enumerate(class_names)}
+    return {i: colors.get(i, colors[i % 10]) for i in range(num_classes)}
 
 def calculate_segmentation_per_grid(image, grid_shape, masks, results):
     """Calculate segmentation area per grid cell with per-class masks."""
@@ -160,10 +160,11 @@ def visualize_results(image, grid_shape, grid_areas, grid_detections, class_mask
 
     # Add percentage text to each grid cell
     font = cv.FONT_HERSHEY_SIMPLEX
-    font_scale = 0.8
-    thickness = 2
-    text_color = (255, 255, 255)
+    font_scale = 1.6
+    thickness = 4
+    text_color = (255, 255, 0)
     bg_color = (0, 0, 0)
+    line_height = 50
 
     for i in range(rows):
         for j in range(cols):
@@ -178,17 +179,33 @@ def visualize_results(image, grid_shape, grid_areas, grid_detections, class_mask
             else:
                 text_lines = ["Bare"]
 
-            y_offset = y_start + 25
+            # Calculate available height in grid cell
+            available_height = row_height - 10
+            max_lines = available_height // line_height
+            text_lines = text_lines[:max_lines]  # Truncate if too many
+
+            # Start position (top-left corner with padding)
+            y_offset = y_start + line_height
+
             for text in text_lines:
                 text_size = cv.getTextSize(text, font, font_scale, thickness)[0]
+                text_width = text_size[0]
                 
+                # Ensure text doesn't go out of bounds horizontally
+                text_x = max(x_start + 3, min(x_start + col_width - text_width - 3, x_start + 3))
+                text_y = y_offset
+
+                # Draw background rectangle
                 cv.rectangle(viz_img,
-                            (x_start + 5, y_offset - text_size[1] - 5),
-                            (x_start + text_size[0] + 10, y_offset + 5),
+                            (text_x - 3, text_y - text_size[1] - 2),
+                            (text_x + text_width + 3, text_y + 2),
                             bg_color, -1)
-                cv.putText(viz_img, text, (x_start + 8, y_offset),
+                
+                # Draw text
+                cv.putText(viz_img, text, (text_x, text_y),
                           font, font_scale, text_color, thickness)
-                y_offset += 25
+                
+                y_offset += line_height
 
     return viz_img
 
@@ -247,7 +264,8 @@ results = model(img, conf=CONFIDENCE_THRESHOLD)
 
 # Get class names and colors
 class_names = results[0].names
-class_colors = get_class_colors(list(class_names.values()))
+num_classes = len(class_names)
+class_colors = get_class_colors(num_classes)
 
 # Debug: Print detected classes
 print(f"\nDetected classes and their IDs:")
@@ -293,4 +311,4 @@ plt.show()
 # Create Excel report
 print("\nGenerating Excel report...")
 df = create_excel_report(GRID_SHAPE, grid_areas, grid_detections, class_names.values(), OUTPUT_EXCEL)
-print("\n✓ Workflow complete!")
+print("\nWorkflow complete!")
