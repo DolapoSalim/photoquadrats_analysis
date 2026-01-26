@@ -38,7 +38,7 @@ def get_class_colors(class_names):
     """Generate distinct colors for each class."""
     colors = {
         0: (0, 255, 0),      # Green
-        1: (255, 128, 0),    # Orange
+        1: (255, 0, 0),      # Blue
         2: (0, 0, 255),      # Red
         3: (255, 255, 0),    # Cyan
         4: (255, 0, 255),    # Magenta
