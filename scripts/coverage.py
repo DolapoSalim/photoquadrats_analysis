@@ -3,7 +3,7 @@ import numpy as np
 from ultralytics import YOLO
 
 # Settings
-MODEL_PATH = "C:\\Users\\dolap\\OneDrive\\Documents\\DOLAPO\\data-analysis\\photoquadrats_analysis\\model\\customV8.pt"
+MODEL_PATH = "C:\\Users\\dolap\\OneDrive\\Documents\\DOLAPO\\data-analysis\\photoquadrats_analysis\\model\\best.pt"
 IMAGE_PATH = "C:\\Users\\dolap\\OneDrive\\Documents\\DOLAPO\\data-analysis\\photoquadrats_analysis\\img\\sample_img.jpg"
 QUADRAT_SIZE_CM = 20  # 20x20 cm
 OUTPUT_VIZ = "quadrat_analysis.png"
