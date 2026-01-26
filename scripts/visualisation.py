@@ -4,19 +4,14 @@ from matplotlib import pyplot as plt
 from ultralytics import YOLO
 import pandas as pd
 
-# ========================
-# Settings
-# ========================
 IMAGE_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\img\sample_img.JPG"
 MODEL_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\model\best.pt"
-CONFIDENCE_THRESHOLD = 0.2
+CONFIDENCE_THRESHOLD = 0.5
 GRID_SHAPE = (4, 4)
 OUTPUT_VIZ = "quadrat_analysis.png"
 OUTPUT_EXCEL = "grid_analysis_report.xlsx"
-
-# ========================
-# Helper Functions
-# ========================
+=
+# Functions
 def grid_lines(image, grid_shape, color=(0, 255, 0), thickness=1):
     """Draw grid on image."""
     img_height, img_width = image.shape[:2]
@@ -243,9 +238,7 @@ def create_excel_report(grid_shape, grid_areas, grid_detections, class_names, ou
     print(f"Excel report saved to: {output_path}")
     return df
 
-# ========================
-# Main Workflow
-# ========================
+# Workflow
 print("Loading image...")
 img = cv.imread(IMAGE_PATH)
 if img is None:
