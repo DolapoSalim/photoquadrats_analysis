@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 from ultralytics import YOLO
 import pandas as pd
 
-# ========== CONFIGURATION ==========
+# ========== CONFIGURATION =========
 IMAGE_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\img\C24169_S.jpg"
 FRAME_MODEL_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\model\pauline_et_al\Frame_detection_model.pt"
 SEGMENTATION_MODEL_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\model\pauline_et_al\Species_segmentation_model.pt"
