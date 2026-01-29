@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 from ultralytics import YOLO
 import pandas as pd
 
-IMAGE_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\img\sample_img.JPG"
+IMAGE_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\img\IMG_0637.JPG"
 MODEL_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\model\best.pt"
 CONFIDENCE_THRESHOLD = 0.5
 GRID_SHAPE = (4, 4)

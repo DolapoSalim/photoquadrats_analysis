@@ -5,7 +5,7 @@ from ultralytics import YOLO
 import pandas as pd
 
 # ========== CONFIGURATION =========
-IMAGE_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\img\C24169_S.jpg"
+IMAGE_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\img\IMG_0637.JPG"
 FRAME_MODEL_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\model\pauline_et_al\Frame_detection_model.pt"
 SEGMENTATION_MODEL_PATH = r"C:\Users\dolap\OneDrive\Documents\DOLAPO\data-analysis\photoquadrats_analysis\model\pauline_et_al\Species_segmentation_model.pt"
 CONFIDENCE_THRESHOLD = 0.25  # Lowered from 0.5 to detect more classes
@@ -608,7 +608,7 @@ def main():
         print("  4. Objects too small or obscured")
         
     if seg_results[0].masks is not None:
-        print(f"\n✓ Total masks generated: {len(seg_results[0].masks.data)}")
+        print(f"\nTotal masks generated: {len(seg_results[0].masks.data)}")
     else:
         print("\nWARNING: NO MASKS FOUND!")
         print("  Check if the model was trained for instance segmentation (task='segment')")
@@ -686,7 +686,7 @@ def main():
     
     # Save visualization
     cv.imwrite(OUTPUT_VIZ, viz_img)
-    print(f"✓ Visualization saved to: {OUTPUT_VIZ}")
+    print(f"Visualization saved to: {OUTPUT_VIZ}")
     
     # Display
     plt.figure(figsize=(14, 10))
